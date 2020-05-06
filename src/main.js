@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import '@/plugin/element-ui' // ElementUI 引入插件配置
 
 Vue.config.productionTip = false
 
