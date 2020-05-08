@@ -40,7 +40,7 @@ export default {
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9
       ], // 转动的圈数是根据转动列表中的组数来定的，比如此时组数为6 ，那么转动的圈数就为5，还有一组为结果数组 如果需要圈数增大，就添加组数即可
       res: [8, 8, 8],
-      putnum: null
+      putnum: ''
     }
   },
   methods: {
@@ -62,21 +62,23 @@ export default {
     },
     TigerChangeNum () {
       let _this = this
-      let pasNum = Number(_this.putnum)
-      let pasStr = String(pasNum)
-      if (pasStr === 'NaN') {
+      $('.playBoxUl').css('marginTop', '0px')
+      let pasNum = Number(_this.putnum) // 强制将输入框内容转换成number类型，用于判断输入的是否是数字
+      let pasStr = String(pasNum) // 再将上面的转换结果转换成字符串，只有两个结果 ，一个是转换后的数字，一个是NaN 再此项中NaN已经被转换成了字符串"NaN"了
+      if (pasStr === 'NaN') { // 此处就很好的利用了以上的转换结果，用来判断是否输入的是数字
         console.log('不是一个数字')
         _this.putnum = ''
+        alert('请输出入正确的“数字”')
       } else {
         console.log(pasStr + '是一个数字')
-        let resNum = pasStr.split('')
+        let resNum = pasStr.split('') // 此处处理输入的内容 将输入的内容处理成数组放入resNum中，此时放入的内容是字符串，要在后面换成数字
         console.log(resNum.length)
-        if (resNum.length !== 3) {
+        if (resNum.length !== 3) { // 判断输入的是否是3位数
           _this.putnum = ''
-          alert('请输入3位数字')
+          alert('请输入“3位”数字')
         } else {
           for (let i = 0; i < 3; i++) {
-            _this.res.splice(i, 1, resNum[i])
+            _this.res.splice(i, 1, parseInt(resNum[i])) // 将转换成数字的结果替换到最终结果列表中
             this.putnum = ''
           }
         }
