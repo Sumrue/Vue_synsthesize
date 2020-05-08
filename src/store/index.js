@@ -4,10 +4,17 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  count: '111'
+  TopTitle: ''
+}
+
+const mutations = {
+  ChangeTopTitle (state, msg) {
+    state.TopTitle = msg
+  }
 }
 
 const store = new Vuex.Store({
-  state
+  state,
+  mutations
 })
 export default store // 输出
