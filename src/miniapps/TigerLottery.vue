@@ -44,6 +44,7 @@ export default {
     }
   },
   methods: {
+    // 启动抽奖
     begin () {
       let _this = this
       $('.playBoxUl').each( // 为每组抽奖列表添加此方法， 设置定时器已达到一个时差的效果
@@ -60,6 +61,7 @@ export default {
         }
       )
     },
+    // 改变最终结果
     TigerChangeNum () {
       let _this = this
       $('.playBoxUl').css('marginTop', '0px')
