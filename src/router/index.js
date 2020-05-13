@@ -9,6 +9,9 @@ import NumLottery from '@/miniapps/NumberLottery'
 
 // 组件
 import Login from '@/component/Login'
+
+// css技巧应用
+import CssBottomFixed from '@/cssuse/CssBottomFixed'
 Vue.use(Router)
 
 export default new Router({
@@ -40,6 +43,12 @@ export default new Router({
     {
       path: '/Login',
       component: Login
+    },
+
+    // CSS技巧应用
+    { // 底部固定技巧
+      path: '/cssuse/CssBottomFixed',
+      component: CssBottomFixed
     }
   ]
 })

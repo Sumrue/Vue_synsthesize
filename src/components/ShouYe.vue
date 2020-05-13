@@ -22,7 +22,7 @@
       </el-submenu>
       <el-submenu index='4'>
         <template slot="title">CSS应用技巧</template>
-        <el-menu-item index="4-1">底部固定</el-menu-item>
+        <el-menu-item index="4-1" route="/cssuse/CssBottomFixed">底部固定</el-menu-item>
         <el-menu-item index="4-2">背景图片视差</el-menu-item>
       </el-submenu>
     </el-menu>
