@@ -42,7 +42,7 @@ export default {
     }
   },
   created () {
-    this.$store.commit('ChangeTopTitle', '记事本')
+    this.$store.commit('ChangeTopTittle', '记事本')
   },
   methods: {
     doIt () { // 点击按钮 添加待办事项

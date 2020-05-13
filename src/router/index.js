@@ -12,6 +12,7 @@ import Login from '@/component/Login'
 
 // css技巧应用
 import CssBottomFixed from '@/cssuse/CssBottomFixed'
+import CssPicDiff from '@/cssuse/CssPicDiff'
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +50,11 @@ export default new Router({
     { // 底部固定技巧
       path: '/cssuse/CssBottomFixed',
       component: CssBottomFixed
+    },
+
+    { // 图片背景视差效果
+      path: '/cssuse/CssPicDiff',
+      component: CssPicDiff
     }
   ]
 })

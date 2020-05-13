@@ -12,7 +12,7 @@
 export default {
   data () {
     return {
-      Title: this.$store.state.TopTitle
+      Title: this.$store.state.TopTittle
     }
   },
   methods: {

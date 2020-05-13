@@ -88,7 +88,7 @@ export default {
     }
   },
   created () {
-    this.$store.commit('ChangeTopTitle', '老虎机抽奖')
+    this.$store.commit('ChangeTopTittle', '老虎机抽奖')
   }
 }
 </script>

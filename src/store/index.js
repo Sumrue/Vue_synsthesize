@@ -4,12 +4,12 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  TopTitle: ''
+  TopTittle: ''
 }
 
 const mutations = {
-  ChangeTopTitle (state, msg) {
-    state.TopTitle = msg
+  ChangeTopTittle (state, msg) {
+    state.TopTittle = msg
   }
 }
 

@@ -24,7 +24,7 @@ export default {
     }
   },
   created () {
-    this.$store.commit('ChangeTopTitle', 'CSS-底部固定技巧')
+    this.$store.commit('ChangeTopTittle', 'CSS-底部固定技巧')
   },
   methods: {
     addNum () {

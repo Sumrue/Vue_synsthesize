@@ -24,7 +24,7 @@ export default {
     }
   },
   created () {
-    this.$store.commit('ChangeTopTitle', '数字抽奖')
+    this.$store.commit('ChangeTopTittle', '数字抽奖')
   },
   methods: {
     begin () {
