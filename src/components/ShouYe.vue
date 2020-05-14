@@ -19,6 +19,7 @@
       <el-submenu index='3'>
         <template slot="title">组件</template>
         <el-menu-item index="3-1" route="/Login">登录</el-menu-item>
+        <el-menu-item index="3-2" route="/regist">注册</el-menu-item>
       </el-submenu>
       <el-submenu index='4'>
         <template slot="title">CSS应用技巧</template>

@@ -9,6 +9,7 @@ import NumLottery from '@/miniapps/NumberLottery'
 
 // 组件
 import Login from '@/component/Login'
+import Regist from '@/component/regist'
 
 // css技巧应用
 import CssBottomFixed from '@/cssuse/CssBottomFixed'
@@ -44,6 +45,11 @@ export default new Router({
     { // 登录
       path: '/Login',
       component: Login
+    },
+
+    { // 注册
+      path: '/regist',
+      component: Regist
     },
 
     // CSS技巧应用

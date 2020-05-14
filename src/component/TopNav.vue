@@ -31,6 +31,7 @@ export default {
   width: 100%;
   background-color: #545c64;
   color: #ffffff;
+  z-index: 15;
 }
 
 #TopNavTitle {
