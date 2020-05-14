@@ -41,7 +41,7 @@ export default new Router({
     },
 
     // 组件
-    {
+    { // 登录
       path: '/Login',
       component: Login
     },
