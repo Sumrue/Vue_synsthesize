@@ -17,8 +17,8 @@
         </el-form-item>
       </el-form>
       <div>
-        <el-button type="primary">注册</el-button>
-        <el-button type="warning">清空</el-button>
+        <el-button type="primary" @click="registOne">注册</el-button>
+        <el-button type="warning" @click="cleanOne">清空</el-button>
       </div>
     </div>
 
@@ -69,6 +69,13 @@ export default {
         callback()
       }
     }
+    var CheackPhone = (rule, value, callback) => {
+      if (isNaN(value)) {
+        callback(new Error('请输入正确的电话号码'))
+      } else {
+        callback()
+      }
+    }
     return {
       formData: { // 第一个表单数据
         user: '',
@@ -91,7 +98,7 @@ export default {
         ],
         pass: [
           {required: true, message: '请密码不能为空', trigger: 'blur'},
-          {min: 3, max: 5, message: '长度在 6 到 10 个字符', trigger: 'blur'}
+          {min: 6, max: 10, message: '长度在 6 到 10 个字符', trigger: 'blur'}
         ],
         email: [
           {required: true, message: '邮箱不能不为空', trigger: 'blur'},
@@ -99,7 +106,7 @@ export default {
         ],
         phone: [
           {required: true, message: '手机号不能为空', trigger: 'blur'},
-          {type: 'number', min: 11, max: 11, message: '请输入正确的11位电话号码', trigger: 'blur'}
+          {len: 11, message: '请输入正确的11位电话号码', trigger: 'blur'} // len和min max 不同  len 代表只能是这个长度位数，代表length
         ]
       },
       rules2: {
@@ -109,7 +116,7 @@ export default {
         ],
         pass2: [
           {required: true, message: '密码不能为空', trigger: 'blur'},
-          { validator: CheackPass, trigger: 'blur' },
+          { validator: CheackPass, trigger: 'blur' }, // 此处对应的就是自定义的表单验证方法，由此看出，自身的验证方法依然有效，只要按照标准添加一项新的就可以了
           {min: 3, max: 5, message: '长度在 6 到 10 个字符', trigger: 'blur'}
         ],
         cheackPass: [
@@ -122,7 +129,8 @@ export default {
         ],
         phone2: [
           {required: true, message: '手机号不能为空', trigger: 'blur'},
-          {type: 'number', min: 11, max: 11, message: '请输入正确的11位电话号码', trigger: 'blur'}
+          {len: 11, message: '请输入正确的11位电话号码', trigger: 'blur'},
+          { validator: CheackPhone, trigger: 'blur' }
         ]
       }
     }
@@ -131,6 +139,20 @@ export default {
     this.$store.commit('ChangeTopTittle', '注册')
   },
   methods: {
+    registOne () {
+      alert(
+        '您的用户名为:' + this.formData.user + '\n' +
+        '您的密码为:' + this.formData.pass + '\n' +
+        '您的email为:' + this.formData.email + '\n' +
+        '您的号码为:' + this.formData.phone + '\n'
+      )
+    },
+    cleanOne () {
+      this.formData.pass = ''
+      this.formData.user = ''
+      this.formData.email = ''
+      this.formData.phone = ''
+    }
   }
 }
 </script>
