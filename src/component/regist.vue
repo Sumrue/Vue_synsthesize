@@ -2,7 +2,7 @@
   <div id="regist">
     <TopNav/>
     <div id="registBox-1">
-      <el-form label-width="80px" :model="formData" :rules="rules" label-position="left">
+      <el-form label-width="80px" :model="formData" :rules="rules" label-position="left" ref="rulecleanRef">
         <el-form-item label="用户名" prop="user"> <!--此处的user对应的是formData里的user，但是验证长度确实根据这里的user来验证-->
           <el-input type="text" v-model="formData.user"></el-input>
         </el-form-item>
@@ -93,7 +93,7 @@ export default {
       },
       rules: {
         user: [
-          {required: true, message: '用户名不能为空', trigger: 'blur'},
+          {required: true, message: '用户名不能为空', trigger: 'blur'}, // trigger: 'blur' 代表鼠标在失去焦点后验证
           {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
         ],
         pass: [
@@ -140,18 +140,27 @@ export default {
   },
   methods: {
     registOne () {
-      alert(
-        '您的用户名为:' + this.formData.user + '\n' +
-        '您的密码为:' + this.formData.pass + '\n' +
-        '您的email为:' + this.formData.email + '\n' +
-        '您的号码为:' + this.formData.phone + '\n'
-      )
+      let _this = this
+      // 线验证表单是否通过， 再输出已通过的验证结果
+      // 还是先获取实力对象 ，通过方法elementUI的validate 来验证
+      _this.$refs.rulecleanRef.validate(function (valid) {
+        if (valid !== true) {
+          alert('请正确填写您的信息后再进行注册')
+        } else {
+          alert(
+            '恭喜您，注册成功 ' + '\n' +
+            '您的用户名为:' + _this.formData.user + '\n' +
+            '您的密码为:' + _this.formData.pass + '\n' +
+            '您的email为:' + _this.formData.email + '\n' +
+            '您的号码为:' + _this.formData.phone + '\n'
+          )
+          _this.$refs.rulecleanRef.resetFields() // 验证成功后重置表单
+        }
+      })
     },
-    cleanOne () {
-      this.formData.pass = ''
-      this.formData.user = ''
-      this.formData.email = ''
-      this.formData.phone = ''
+    cleanOne () { // 表单重置
+      console.log(this)
+      this.$refs.rulecleanRef.resetFields() // element 表单重置方法， 要先设置一个实力对象  ，表单上设置 ref = "rulecleanRef"
     }
   }
 }
@@ -179,6 +188,4 @@ export default {
   border: 1px solid rgb(194, 182, 182);
 }
 
-#registBox-1 .el-input {
-}
 </style>
