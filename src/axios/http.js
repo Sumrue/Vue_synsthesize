@@ -107,7 +107,7 @@ export function get(url, params){
        axios.get(url, {            
            params: params        
        }).then(res => {
-           resolve(res.data) // 此处设置的res.data为请求后的res, 最终请求得到的结果，可以从此处来更改
+           resolve(res.data) // 此处设置的res.data为请求后的res, 最终请求得到的结果，可以从此处来更改 
        }).catch(err =>{
            reject(err.data)        
    })    
