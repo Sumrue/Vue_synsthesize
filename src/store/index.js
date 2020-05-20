@@ -4,12 +4,17 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  TopTittle: ''
+  TopTittle: '',
+  fullPath: '/'
 }
 
 const mutations = {
   ChangeTopTittle (state, msg) {
     state.TopTittle = msg
+  },
+
+  ChangeFullPath (state, msg) {
+    state.fullPath = msg
   }
 }
 
