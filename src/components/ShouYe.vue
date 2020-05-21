@@ -31,13 +31,22 @@
 </template>
 
 <script>
+import {apiAddressGet} from '@/axios/api'
 export default {
   data () {
     return {
       activeIndex: '1'
     }
   },
+  created () {
+    this.getMock()
+  },
   methods: {
+    getMock () {
+      apiAddressGet().then(res => {
+        console.log(res)
+      })
+    }
   }
 }
 </script>
