@@ -75,7 +75,6 @@ router.beforeEach((to, from, next) => {
   const token = window.sessionStorage.getItem('token')
   if (to.path === '/Login') { // 判断是否是去登录页
     if (!token) { // 是登录页的情况，也要判断是否已登录，已登录就发送错误消息提示，不是则去登录页  通过是否有token来判断
-      store.commit('ChangeFullPath', Router.path) // vuex中设置一个共享参数，存放当前的路由地址，方便登陆成功后返回到当前页面
       next()
     } else {
       Message({
